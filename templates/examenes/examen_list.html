@@ -8,13 +8,19 @@
 {% for examen in object_list %}
 <tr>
 <td>
+{{examen.clase}}
+</td>
+<td>
 {{examen.nombre}}
 </td>
 <td>
 {{examen.fecha_subida}}
 </td>
 <td>
-<a href="{{examen.fichero.url}}">Examen</a>
+{{examen.equipo}}
+</td>
+<td>
+<a href="{{examen.fichero.url}}">{{examen.fichero}}</a>
 </td>
 </tr>
 

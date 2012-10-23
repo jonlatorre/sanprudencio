@@ -9,12 +9,11 @@ from forms import *
 
 class ExamenCreate(CreateView):
     model = Examen
-    #template = "examenes/examen_form.html"
-    #form_class = ExamenForm
-    #success_url=resolve('examenes')
-    def form_valid(self, form):
-        form.instance.request = self.request
-        return super(ExamenCreate, self).form_valid(form)
+    form_class = ExamenForm
+    ##Sacamos la dirección del equipo cliente y la pasamos como initial_data para el form
+    def get_initial(self):
+        super(ExamenCreate, self).get_initial()
+        return {"equipo": "%s - %s"%(self.request.META["REMOTE_HOST"],self.request.META["REMOTE_ADDR"])}
 
 class ExamenUpdate(UpdateView):
     model = Examen
