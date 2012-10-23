@@ -1,0 +1,14 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+
+{% block body %}
+
+<form action="{% url upload_examen %}" method="post" enctype="multipart/form-data">{% csrf_token %}
+    {{ form.as_p }}
+    <input class="submit btn-form" type="submit" value="{% trans 'Save' %}" />
+</form>
+
+{% endblock %}
+
+
+

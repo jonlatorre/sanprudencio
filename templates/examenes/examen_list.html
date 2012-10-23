@@ -1,0 +1,24 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+
+{% block body %}
+
+<table class="table">
+
+{% for examen in object_list %}
+<tr>
+<td>
+{{examen.nombre}}
+</td>
+<td>
+{{examen.fecha_subida}}
+</td>
+<td>
+<a href="{{examen.fichero.url}}">Examen</a>
+</td>
+</tr>
+
+{% endfor %}
+</table>
+
+{% endblock %}
