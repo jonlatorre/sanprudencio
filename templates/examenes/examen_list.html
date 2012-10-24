@@ -4,11 +4,20 @@
 {% block body %}
 
 <table class="table">
-
+<thead>
+<tr>
+<th>Curso</th>
+<th>Nombre</th>
+<th>Fecha Subida</th>
+<th>Equipo</th>
+<th>examen</th>
+</tr>
+</thead>
+<tbody>
 {% for examen in object_list %}
 <tr>
 <td>
-{{examen.clase}}
+{{examen.curso}}
 </td>
 <td>
 {{examen.nombre}}
@@ -25,6 +34,7 @@
 </tr>
 
 {% endfor %}
+</tbody>
 </table>
 
 {% endblock %}
