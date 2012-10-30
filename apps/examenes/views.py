@@ -13,7 +13,7 @@ class ExamenCreate(CreateView):
     ##Sacamos la dirección del equipo cliente y la pasamos como initial_data para el form
     def get_initial(self):
         super(ExamenCreate, self).get_initial()
-        return {"equipo": "%s - %s"%(self.request.META["REMOTE_HOST"],self.request.META["REMOTE_ADDR"])}
+        return {"equipo": "%s"%(self.request.META["REMOTE_ADDR"])}
 
 class ExamenUpdate(UpdateView):
     model = Examen
