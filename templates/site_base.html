@@ -7,6 +7,15 @@
     {% block extra_head %}{% endblock %}
 {% endblock %}
 
+{% block nav %}
+    <ul class="nav">{% spaceless %}
+    {% if user.is_authenticated %}
+    <li id="lista_examenes"><a href="{% url  lista_examenes %}">{% trans "Lista Examenes" %}</a></li>
+    {% endif %}
+    {% endspaceless %}</ul>
+{% endblock%}
+
+
 {% block footer %}
 <div class="legal">
     {% include "_footer.html" %}
