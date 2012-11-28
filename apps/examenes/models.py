@@ -16,6 +16,13 @@ CURSOS = (
     ('TI', 'TIC'),
     ('DA', 'DAO'),
 )
+EVALUACION = (
+    ( 1, "1ªEval"),
+    ( 2, "2ªEval"),
+    ( 3, "3ªEval"),
+    ( 4, "Ordinaria"),
+    ( 5, "Extraordinaria"),
+)
 
 def ajustar_nombre_fichero(instance, filename):
     """Ajustamos el nombre dle fichero a guardar para que contenga la clase y el nombre del alumno"""
@@ -31,5 +38,6 @@ class Examen(models.Model):
     fecha_subida = models.DateField(auto_now_add=True)
     fichero =  models.FileField(upload_to=ajustar_nombre_fichero)
     curso = models.CharField(max_length=2, choices=CURSOS)
+    evaluacion = models.DecimalField( max_digits=2, decimal_places=0, choices=EVALUACION)
     def get_absolute_url(self):
         return "/examenes"
