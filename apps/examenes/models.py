@@ -17,11 +17,11 @@ CURSOS = (
     ('DA', 'DAO'),
 )
 EVALUACION = (
-    ( 1, "1ªEval"),
-    ( 2, "2ªEval"),
-    ( 3, "3ªEval"),
-    ( 4, "Ordinaria"),
-    ( 5, "Extraordinaria"),
+    ( 0, "1ªEval"),
+    ( 1, "2ªEval"),
+    ( 2, "3ªEval"),
+    ( 3, "Ordinaria"),
+    ( 4, "Extraordinaria"),
 )
 
 def ajustar_nombre_fichero(instance, filename):
@@ -39,5 +39,7 @@ class Examen(models.Model):
     fichero =  models.FileField(upload_to=ajustar_nombre_fichero)
     curso = models.CharField(max_length=2, choices=CURSOS)
     evaluacion = models.DecimalField( max_digits=2, decimal_places=0, choices=EVALUACION)
+    def evaluacion_nombre(self):
+        return EVALUACION[int(self.evaluacion)][1]
     def get_absolute_url(self):
         return "/examenes"
