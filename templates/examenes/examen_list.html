@@ -9,11 +9,12 @@
 {% for curso in cursos %}
     <div class="accordion-group">
         <div class="accordion-heading">
-            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionCursos" href="#collapseCurso{{forloop.counter}}">
-               Curso {{ curso.grouper }}
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionCursos" 
+            href="#collapseCurso{{curso.grouper}}">
+               Curso: {{ curso.grouper }}
             </a>
         </div>
-        <div id="collapseCurso{{forloop.counter}}" class="accordion-body collapse in">
+        <div id="collapseCurso{{curso.grouper}}" class="accordion-body collapse in">
             <div class="accordion-inner">
                 <div class="accordion" id="accordionEvaluacionesCurso{{curso.id}}">
                 {% regroup curso.list by evaluacion_nombre as evaluaciones %}
@@ -23,42 +24,32 @@
                             <a class="accordion-toggle" data-toggle="collapse" 
                                 data-parent="#accordionEvaluacionesCurso{{curso.grouper}}" 
                                 href="#collapseEvaluacion{{forloop.counter}}Curso{{curso.grouper}}">
-                                {{ evaluacion.grouper }} evaluación
+                                Evaluación: {{ evaluacion.grouper }} 
                             </a>
                         </div>
                         <div id="collapseEvaluacion{{forloop.counter}}Curso{{curso.grouper}}" class="accordion-body collapse in">
-                            <ul>
-<table class="table">
-<thead>
-<tr>
-<th>Nombre</th>
-<th>Fecha Subida</th>
-<th>Equipo</th>
-<th>examen</th>
-</tr>
-</thead>
-<tbody>
-{% for examen in evaluacion.list %}
-<tr>
-<td>
-{{examen.nombre}}
-</td>
-<td>
-{{examen.fecha_subida}}
-</td>
-<td>
-{{examen.equipo}}
-</td>
-<td>
-<a href="{{examen.fichero.url}}">{{examen.fichero}}</a>
-</td>
-</tr>
-
-{% endfor %}
-</tbody>
-</table>
-                            
-                            </ul>
+                        
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Fecha Subida</th>
+                                    <th>Equipo</th>
+                                    <th>examen</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for examen in evaluacion.list %}
+                                <tr>
+                                    <td>{{examen.nombre}}</td>
+                                    <td>{{examen.fecha_subida}}</td>
+                                    <td>{{examen.equipo}}</td>
+                                    <td><a href="{{examen.fichero.url}}">{{examen.fichero}}</a></td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                            </table>
+                        
                         </div>
                     </div>
             </div>
