@@ -6,7 +6,7 @@
 <div class="accordion" id="accordionCursos">
 {% regroup object_list by curso as cursos %}
 
-{% for curso in cursos %}
+    {% for curso in cursos %}
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionCursos" 
@@ -55,9 +55,8 @@
             </div>
             {% endfor %}    
         </div>
-{% endfor %}
+    </div>
+    {% endfor %}
 </div>
-
-
 
 {% endblock %}
