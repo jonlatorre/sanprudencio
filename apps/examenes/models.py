@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 from django.template.defaultfilters import slugify
+from django.core.urlresolvers import reverse
 import os
 # Create your models here.
 
@@ -42,4 +43,9 @@ class Examen(models.Model):
     def evaluacion_nombre(self):
         return EVALUACION[int(self.evaluacion)][1]
     def get_absolute_url(self):
-        return "/examenes"
+        #return "/examenes"
+        return reverse("indice_examenes")
+    def __str__(self):
+        return "%s-%s-%s"%(self.curso,self.evaluacion,self.nombre)
+    def __unicode__(self):
+        return "%s-%s-%s"%(self.curso,self.evaluacion,self.nombre)

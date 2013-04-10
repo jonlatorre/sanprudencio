@@ -24,4 +24,4 @@ class ExamenDelete(DeleteView):
 
 class ExamenList(ListView):
     model = Examen
-    queryset = Examen.objects.all().order_by('curso','fecha_subida')
+    queryset = Examen.objects.all().order_by('curso','evaluacion','fecha_subida')
