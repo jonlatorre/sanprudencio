@@ -30,8 +30,15 @@ def ajustar_nombre_fichero(instance, filename):
     #print "tenemos la instance:", instance
     #print "Y el fichero:",filename
     path = "ficheros_examenes"
-    format = instance.curso + "_" + slugify(instance.nombre) + "_" + filename
-    return os.path.join(path, format)
+    #FIXME esto lo debería calcular
+    ano = "2012_13"
+    curso = slugify(instance.curso)
+    #FIXME hay que sacar el nombre de la evalución no el número
+    evaluacion = slugify(instance.get_evaluacion_display())
+    format = slugify(instance.nombre) + "_" + filename
+    print "Vamos a guardarlo en ..:"
+    print path, ano, curso, evaluacion, format
+    return os.path.join(path, ano, curso, evaluacion, format)
 
 class Examen(models.Model):
     nombre = models.CharField(max_length=255)
