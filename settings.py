@@ -157,6 +157,7 @@ INSTALLED_APPS = [
     "timezones",
     "emailconfirmation",
     "metron",
+    "bootstrapform",
     
     # Pinax
     "pinax.apps.account",

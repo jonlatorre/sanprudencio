@@ -3,6 +3,8 @@ from django.db import models
 from django.template.defaultfilters import slugify
 from django.core.urlresolvers import reverse
 import os
+from django.utils.translation import gettext_lazy as _
+
 # Create your models here.
 
 CURSOS = (
@@ -41,10 +43,10 @@ def ajustar_nombre_fichero(instance, filename):
     return os.path.join(path, ano, curso, evaluacion, format)
 
 class Examen(models.Model):
-    nombre = models.CharField(max_length=255)
+    nombre = models.CharField(_('Nombre y Apellidos'),max_length=255,)
     equipo = models.CharField(max_length=255)
     fecha_subida = models.DateField(auto_now_add=True)
-    fichero =  models.FileField(upload_to=ajustar_nombre_fichero)
+    fichero =  models.FileField(_('Fichero del examen'),upload_to=ajustar_nombre_fichero)
     curso = models.CharField(max_length=2, choices=CURSOS)
     evaluacion = models.DecimalField( max_digits=2, decimal_places=0, choices=EVALUACION)
     def evaluacion_nombre(self):
