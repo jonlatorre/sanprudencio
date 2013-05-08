@@ -28,7 +28,7 @@ EVALUACION = (
 )
 
 def ajustar_nombre_fichero(instance, filename):
-    """Ajustamos el nombre dle fichero a guardar para que contenga la clase y el nombre del alumno"""
+    """Ajustamos el nombre del fichero a guardar para que contenga la clase y el nombre del alumno"""
     #print "tenemos la instance:", instance
     #print "Y el fichero:",filename
     path = "ficheros_examenes"

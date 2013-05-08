@@ -10,8 +10,13 @@
     <h1>{% trans "Sube tu examen" %}</h1>
     <p>
         {% blocktrans %}
-        Breve explicación de que es esto.
+        "A través de esta aplicación harás llegar tu examen al profesor. Se cuidadoso en elegir correctamente 
+        el curso al que perteneces y la evaluación a la que corresponde tu examen."
         {% endblocktrans %}
+    </p>
+    <p>
+        {% blocktrans %}A la hora se dubir un fichero asegurate de que no incluye ni tildes ni la "ñ" ni 
+        otros carácteres no alfanuméricos (&,/,',... etc){% endblocktrans %}
     </p>
     
         <p class="examen"><a href="{% url upload_examen %}" class="btn btn-primary btn-large">Sube tu examen</a></p>
