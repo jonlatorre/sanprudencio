@@ -1,0 +1,17 @@
+{% extends "site_base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Subida OK" %}{% endblock %}
+
+
+{% block body %}
+ <div class="hero-unit well">
+    <h1>{% trans "Examen subido correctamente" %}</h1>
+    <p>
+        {% blocktrans %}
+        Hemos recibido tu examen correctamente. Gracias.
+        {% endblocktrans %}
+    </p>
+ </div>
+{% endblock %}

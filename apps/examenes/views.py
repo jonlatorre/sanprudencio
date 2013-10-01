@@ -10,6 +10,7 @@ from forms import *
 class ExamenCreate(CreateView):
     model = Examen
     form_class = ExamenForm
+    success_url = "/examenes/ok/"
     ##Sacamos la dirección del equipo cliente y la pasamos como initial_data para el form
     def get_initial(self):
         super(ExamenCreate, self).get_initial()

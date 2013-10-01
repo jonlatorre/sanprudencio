@@ -8,4 +8,5 @@ urlpatterns = patterns("",
     url(r"^$", direct_to_template, {"template": "examenes/about.html"}, name="indice_examenes"),
     url(r"^subir/$", ExamenCreate.as_view(), name="upload_examen"),
     url(r"^lista/$", login_required(ExamenList.as_view()), name="lista_examenes"),
+    url(r"^ok/$", direct_to_template, {"template": "examenes/subida_ok.html"}, name="subida_ok"),
 )
